@@ -1,19 +1,33 @@
 body {
-  background-color: #1e1e1e;
+  background-color: #121212;
+  /* Твой фон теперь точно найдется по этому пути */
+  background-image: url('images/bg-dark.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #e0e0e0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
+  margin: 0;
 }
 
 .tree-container {
   max-width: 500px;
   margin: 0 auto;
+  background-color: rgba(20, 20, 20, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  border: 1px solid #444;
 }
 
 h2 {
   text-align: center;
   color: #fff;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 .tree-list, .sub-tree {
@@ -23,26 +37,35 @@ h2 {
 }
 
 .tree-item {
-  margin: 5px 0;
+  margin: 8px 0;
+  padding: 10px;
   border-left: 3px solid #333;
-  padding-left: 10px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.tree-item:hover {
+  background: rgba(255,255,255,0.08);
+  border-left-color: #ff4d4d;
 }
 
 .tree-item.has-children {
-  border-color: #4a4a4a;
   cursor: pointer;
+  border-color: #ff4d4d;
 }
 
 .item-content {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .item-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
   vertical-align: middle;
 }
 
@@ -52,6 +75,8 @@ h2 {
   display: inline-block;
   color: #888;
   user-select: none;
+  font-weight: bold;
+  margin-left: auto; /* Кнопка справа */
 }
 
 .tree-item.has-children.collapsed .toggle-btn {
@@ -63,14 +88,10 @@ h2 {
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   padding-left: 10px;
+  margin-top: 5px;
   border-left: 1px solid #2a2a2a;
 }
 
 .tree-item.has-children.expanded .sub-tree {
-  max-height: 500px; /* Достаточно для большинства вложенных списков */
-  padding-bottom: 10px;
-}
-
-.tree-item.has-children.expanded .toggle-btn {
-  color: #fff;
+  max-height: 500px;
 }
