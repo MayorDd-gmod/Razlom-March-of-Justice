@@ -3,71 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Штаб группировки</title>
+  <title>Razlom: March of Justice</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="tree-container">
-    <h2>🏛 Штаб группировки</h2>
-    
+    <h2>Структура Подразделений</h2>
     <ul class="tree-list">
-      <!-- Сразу подразделения под штабом (без ВС РФ) -->
       
-      <li class="tree-item has-children">
-        <span class="toggle-btn">▼</span>
-        <span class="item-content">
-          <img src="images/icon-252.png" alt="252" class="item-icon">
-          252-ГвМСП
-        </span>
-        <!-- Вложенный список (если у части есть свои отделы) -->
+      <!-- Пункт 1: Штаб (раскрывающийся) -->
+      <li class="tree-item has-children expanded">
+        <div class="item-content">
+          <img src="images/icon-hq.png" alt="Штаб" class="item-icon">
+          <span>Штаб Операций</span>
+          <span class="toggle-btn">▼</span>
+        </div>
         <ul class="sub-tree">
-          <li class="tree-item"><span class="item-content">Штаб батальона</span></li>
-          <li class="tree-item"><span class="item-content">1-й мотострелковый батальон</span></li>
-          <li class="tree-item"><span class="item-content">2-й мотострелковый батальон</span></li>
+          <li class="tree-item">
+            <div class="item-content">
+              <img src="images/icon-252.png" alt="252-ГвМСП" class="item-icon">
+              <span>252-ГвМСП</span>
+            </div>
+          </li>
+          <li class="tree-item">
+            <div class="item-content">
+              <img src="images/icon-spetsnaz.png" alt="Спецназ" class="item-icon">
+              <span>Спецназ "Гром"</span>
+            </div>
+          </li>
         </ul>
       </li>
 
-      <li class="tree-item has-children">
-        <span class="toggle-btn">▼</span>
-        <span class="item-content">
-          <img src="images/icon-237.png" alt="237" class="item-icon">
-          237-ТП
-        </span>
-        <ul class="sub-tree">
-          <li class="tree-item"><span class="item-content">Штаб полка</span></li>
-          <li class="tree-item"><span class="item-content">Танковые батальоны</span></li>
-        </ul>
-      </li>
-
-      <li class="tree-item has-children">
-        <span class="toggle-btn">▼</span>
-        <span class="item-content">
-          <img src="images/icon-16.png" alt="16" class="item-icon">
-          16-ГвБАА
-        </span>
-        <ul class="sub-tree">
-          <li class="tree-item"><span class="item-content">Штаб бригады</span></li>
-          <li class="tree-item"><span class="item-content">Артиллерийские дивизионы</span></li>
-        </ul>
-      </li>
-
+      <!-- Пункт 2: ФСБ -->
       <li class="tree-item">
-        <span class="item-content">
-          <img src="images/icon-sso.png" alt="ССО" class="item-icon">
-          ССО
-        </span>
-      </li>
-
-      <li class="tree-item">
-        <span class="item-content">
+        <div class="item-content">
           <img src="images/icon-fsb.png" alt="ФСБ" class="item-icon">
-          ФСБ
-        </span>
+          <span>Управление ФСБ по региону</span>
+        </div>
       </li>
+
     </ul>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const items = document.querySelectorAll('.tree-item.has-children');
+    items.forEach(item => {
+      const btn = item.querySelector('.toggle-btn');
+      btn.addEventListener('click', () => {
+        item.classList.toggle('expanded');
+        item.classList.toggle('collapsed');
+      });
+    });
+  </script>
 </body>
 </html>
