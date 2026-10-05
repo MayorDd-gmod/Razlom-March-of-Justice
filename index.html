@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Штаб группировки</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="tree-container">
+    <h2>🏛 Штаб группировки</h2>
+    
+    <ul class="tree-list">
+      <!-- Сразу подразделения под штабом (без ВС РФ) -->
+      
+      <li class="tree-item has-children">
+        <span class="toggle-btn">▼</span>
+        <span class="item-content">
+          <img src="images/icon-252.png" alt="252" class="item-icon">
+          252-ГвМСП
+        </span>
+        <!-- Вложенный список (если у части есть свои отделы) -->
+        <ul class="sub-tree">
+          <li class="tree-item"><span class="item-content">Штаб батальона</span></li>
+          <li class="tree-item"><span class="item-content">1-й мотострелковый батальон</span></li>
+          <li class="tree-item"><span class="item-content">2-й мотострелковый батальон</span></li>
+        </ul>
+      </li>
+
+      <li class="tree-item has-children">
+        <span class="toggle-btn">▼</span>
+        <span class="item-content">
+          <img src="images/icon-237.png" alt="237" class="item-icon">
+          237-ТП
+        </span>
+        <ul class="sub-tree">
+          <li class="tree-item"><span class="item-content">Штаб полка</span></li>
+          <li class="tree-item"><span class="item-content">Танковые батальоны</span></li>
+        </ul>
+      </li>
+
+      <li class="tree-item has-children">
+        <span class="toggle-btn">▼</span>
+        <span class="item-content">
+          <img src="images/icon-16.png" alt="16" class="item-icon">
+          16-ГвБАА
+        </span>
+        <ul class="sub-tree">
+          <li class="tree-item"><span class="item-content">Штаб бригады</span></li>
+          <li class="tree-item"><span class="item-content">Артиллерийские дивизионы</span></li>
+        </ul>
+      </li>
+
+      <li class="tree-item">
+        <span class="item-content">
+          <img src="images/icon-sso.png" alt="ССО" class="item-icon">
+          ССО
+        </span>
+      </li>
+
+      <li class="tree-item">
+        <span class="item-content">
+          <img src="images/icon-fsb.png" alt="ФСБ" class="item-icon">
+          ФСБ
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
