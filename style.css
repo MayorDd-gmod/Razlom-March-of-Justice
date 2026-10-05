@@ -1,0 +1,76 @@
+body {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.tree-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.tree-list, .sub-tree {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.tree-item {
+  margin: 5px 0;
+  border-left: 3px solid #333;
+  padding-left: 10px;
+}
+
+.tree-item.has-children {
+  border-color: #4a4a4a;
+  cursor: pointer;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.toggle-btn {
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  color: #888;
+  user-select: none;
+}
+
+.tree-item.has-children.collapsed .toggle-btn {
+  transform: rotate(-90deg);
+}
+
+.sub-tree {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding-left: 10px;
+  border-left: 1px solid #2a2a2a;
+}
+
+.tree-item.has-children.expanded .sub-tree {
+  max-height: 500px; /* Достаточно для большинства вложенных списков */
+  padding-bottom: 10px;
+}
+
+.tree-item.has-children.expanded .toggle-btn {
+  color: #fff;
+}
