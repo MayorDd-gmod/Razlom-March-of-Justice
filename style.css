@@ -1,97 +1,85 @@
 body {
-  background-color: #121212;
-  /* Твой фон теперь точно найдется по этому пути */
-  background-image: url('images/bg-dark.png');
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* Фон теперь берётся из корня, без папки images */
+  background-image: url('bg-dark.png'); 
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  color: #e0e0e0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
-  margin: 0;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: #fff;
 }
 
 .tree-container {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: rgba(20, 20, 20, 0.95);
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 h2 {
   text-align: center;
-  color: #fff;
   margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  color: #ffd700; /* Золотой цвет заголовка */
 }
 
-.tree-list, .sub-tree {
+.tree-list {
   list-style: none;
   padding-left: 0;
-  margin: 0;
 }
 
 .tree-item {
-  margin: 8px 0;
-  padding: 10px;
-  border-left: 3px solid #333;
-  background: rgba(255,255,255,0.03);
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-
-.tree-item:hover {
-  background: rgba(255,255,255,0.08);
-  border-left-color: #ff4d4d;
-}
-
-.tree-item.has-children {
-  cursor: pointer;
-  border-color: #ff4d4d;
+  margin-bottom: 10px;
 }
 
 .item-content {
   display: flex;
   align-items: center;
-  gap: 12px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.item-content:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .item-icon {
   width: 32px;
   height: 32px;
-  object-fit: cover;
-  border-radius: 4px;
-  vertical-align: middle;
+  margin-right: 15px;
+  object-fit: contain;
 }
 
 .toggle-btn {
-  width: 20px;
-  text-align: center;
-  display: inline-block;
-  color: #888;
-  user-select: none;
-  font-weight: bold;
-  margin-left: auto; /* Кнопка справа */
+  margin-left: auto;
+  font-size: 12px;
+  color: #aaa;
+  transition: transform 0.3s;
 }
 
-.tree-item.has-children.collapsed .toggle-btn {
-  transform: rotate(-90deg);
+/* Поворот стрелочки при раскрытии */
+.tree-item.expanded .toggle-btn {
+  transform: rotate(180deg);
+  color: #fff;
 }
 
 .sub-tree {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding-left: 10px;
+  list-style: none;
+  padding-left: 47px; /* Отступ под иконку родителя */
   margin-top: 5px;
-  border-left: 1px solid #2a2a2a;
+  display: none; /* Скрыто по умолчанию */
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  border-radius: 4px;
 }
 
-.tree-item.has-children.expanded .sub-tree {
-  max-height: 500px;
+/* Показываем подменю, если у родителя есть класс expanded */
+.tree-item.expanded .sub-tree {
+  display: block;
 }
